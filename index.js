@@ -5,6 +5,7 @@
  			var Path = require("path")
  				, Fs = require("latte_lib").fs
  				, path = Path.normalize(__dirname + "/./lib")
+ 				, self = this
  				, helps = [];
  			Fs.readdirSync(path).forEach(function(filename) {
  				try {
@@ -20,6 +21,6 @@
  				}
  			});
 
- 		})
+ 		}).call(module.exports);
  	});
 })(typeof define === "function"? define: function(name, reqs, factory) {factory(require, exports, module); });
