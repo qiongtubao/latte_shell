@@ -4,7 +4,6 @@
 	"description": "latte_shell",
 	"keywords": ["latte","latte_webServer"],
 	"author": "qiongtubao",
-	""
 	"main": "index.js",
 	"repository": {
 		"type": "git",
