@@ -2,7 +2,7 @@
 (function(define) {'use strict'
 	define("latte", ["require", "exports", "module", "window"], 
 		function(require, exports, module, window) {
-			var lattes = require("latte_shell")
+			var lattes = require("../index")
 				, handleName = process.argv[2]
 				, help = function() {
 					console.log("use latte")
