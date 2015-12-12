@@ -15,6 +15,7 @@
 	    "mocha": "*",
 	    "commander": "*",
 	    "gulp": "*",
-	    "grunt-cli":"*"
+	    "grunt-cli":"*",
+	    "typescript":"*"
 	}
 }
