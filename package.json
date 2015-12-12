@@ -13,6 +13,8 @@
 		"yuidocjs": "*",
 	    "uglify-js": "*",
 	    "mocha": "*",
-	    "commander": "*"
+	    "commander": "*",
+	    "gulp": "*",
+	    "grunt-cli":"*"
 	}
 }
