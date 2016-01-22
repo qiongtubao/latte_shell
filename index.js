@@ -3,24 +3,28 @@
  	function(require, exports, module, window) {
  		(function() {
  			var Path = require("path")
- 				, Fs = require("latte_lib").fs
  				, path = Path.normalize(__dirname + "/./lib")
  				, self = this
  				, helps = [];
- 			Fs.readdirSync(path).forEach(function(filename) {
- 				try {
- 					var handle = require("./lib/" + filename) ;
- 					self[filename] = handle.latte;
- 					helps.push(handle.help);
- 				}catch(e) {
- 					if(e.code != "MODULE_NOT_FOUND") {
- 						console.log(e);
- 					}else{
- 						console.log(filename + "module is developing");
- 					}
- 				}
- 			});
+ 				/**
+	 			Fs.readdirSync(path).forEach(function(filename) {
+	 				try {
+	 					var handle = require("./lib/" + filename) ;
+	 					self[filename] = handle.latte;
+	 					helps.push(handle.help);
+	 				}catch(e) {
+	 					if(e.code != "MODULE_NOT_FOUND") {
+	 						console.log(e);
+	 					}else{
+	 						console.log(filename + "module is developing");
+	 					}
+	 				}
+	 			});
+				*/
+			var module = require("./lib/module");
+			
 
+			this.findModule = module.find;
  		}).call(module.exports);
  	});
 })(typeof define === "function"? define: function(name, reqs, factory) {factory(require, exports, module); });
