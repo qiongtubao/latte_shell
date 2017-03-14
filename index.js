@@ -23,6 +23,7 @@
 				*/
 			var module = require("./lib/module");
 			
+			
 
 			this.findModule = module.find;
  		}).call(module.exports);

@@ -9,6 +9,9 @@
 		"type": "git",
 		"url": "https://github.com/qiongtubao/latte_shell.git"
 	},
+	"script": {
+		"install": "sudo sh shell/install.sh"
+	},
 	"dependencies": {
 		"yuidocjs": "*",
 	    "uglify-js": "*",

@@ -1,3 +1,18 @@
 {
-	
+	"buildJs" : 
+	{
+		"path" : "/Users/zhouguodong/Documents/workspace/github/latte_shell_modules/latte_build/bin/buildJs"
+	},
+	"mocha" : 
+	{
+		"path" : "/Users/zhouguodong/Documents/workspace/github/latte_shell/node_modules/mocha/bin/mocha"
+	},
+	"web" : 
+	{
+		"path" : "/Users/zhouguodong/Documents/workspace/github/latte_shell_modules/latte_webServer/bin/web"
+	},
+	"watch" : 
+	{
+		"path" : "/Users/zhouguodong/Documents/workspace/github/latte_module/latte_watch/bin/watch"
+	}
 }
