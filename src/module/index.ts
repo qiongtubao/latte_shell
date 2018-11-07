@@ -1,96 +1,84 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var latte_lib = require("latte_lib");
-var Path = require("path");
-var Fs = require("fs");
-var moduleJson;
+import * as latte_lib from "latte_lib"
+import * as Path from "path"
+import * as Fs from "fs"
+let moduleJson;
 try {
     moduleJson = require("../../data/modules.json");
-}
-catch (err) {
+} catch (err) {
     throw ("modules is bad");
 }
-var Module = (function () {
-    function Module(methodName) {
-        var args = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            args[_i - 1] = arguments[_i];
-        }
+
+export default class Module {
+    constructor(methodName, ...args) {
         if (Module[methodName]) {
             Module[methodName].apply(null, args);
-        }
-        else {
+        } else {
             Module.help.apply(null, args);
         }
     }
-    Module.writeModules = function () {
+    private static writeModules() {
         Fs.writeFileSync(__dirname + "/../../data/modules.json", latte_lib.format.jsonFormat(moduleJson));
-    };
-    Module.install = function (moduleName, modulePath) {
-        var add = function (moduleName, modulePath) {
-            var m;
+    }
+    static install(moduleName, modulePath) {
+        let add = (moduleName, modulePath) => {
+            let m;
             try {
                 m = require(modulePath);
-            }
-            catch (err) {
+            } catch (err) {
                 console.log(err);
             }
             moduleJson[moduleName] = {
                 path: modulePath
-            };
-        };
+            }
+        }
         if (moduleName == null || modulePath == null) {
-            var config = require(process.cwd() + "/package.json");
+            let config = require(process.cwd() + "/package.json");
             if (latte_lib.utils.isString(config.bin)) {
                 moduleName = moduleName || config.bin;
                 modulePath = modulePath || Path.join(process.cwd(), (config.bin || ""));
                 add(moduleName, modulePath);
-            }
-            else {
-                for (var name_1 in config.bin) {
-                    add(name_1, Path.join(process.cwd(), (config.bin[name_1])));
+            } else {
+                for (let name in config.bin) {
+                    add(name, Path.join(process.cwd(), (config.bin[name])));
                 }
             }
-        }
-        else {
+        } else {
             add(moduleName, modulePath);
         }
         Module.writeModules();
-    };
-    Module.remove = function (moduleName) {
+
+    }
+    static remove(moduleName) {
         delete moduleJson[moduleName];
         Module.writeModules();
-    };
-    Module.find = function (moduleName) {
+    }
+    static find(moduleName) {
         if (moduleName == "module") {
-            return console.error("if module have debugger you can send mail to  Author");
+            return console.error("if module have debugger you can send mail to  Author")
         }
-        var moduleConfig = moduleJson[moduleName];
+        let moduleConfig = moduleJson[moduleName];
         if (!moduleConfig) {
             return console.log("you maybe no install or install failed " + moduleName);
         }
         console.log(moduleConfig.path);
-    };
-    Module.help = function () {
+    }
+    static help() {
         console.log("you have help");
-    };
-    Module.findModule = function (moduleName) {
+    }
+    static findModule(moduleName) {
         if (moduleName == "module") {
             return Module;
         }
-        var moduleConfig = moduleJson[moduleName];
+        let moduleConfig = moduleJson[moduleName];
         if (!moduleConfig) {
             return null;
         }
-        var m;
+        let m;
         try {
             m = require(moduleConfig.path);
-        }
-        catch (err) {
+        } catch (err) {
             return null;
         }
         return m;
-    };
-    return Module;
-}());
-exports.default = Module;
+    }
+}

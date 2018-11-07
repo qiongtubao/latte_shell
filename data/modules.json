@@ -1,0 +1,22 @@
+{
+	"tsc" : 
+	{
+		"path" : "/Users/zhouguodong/Documents/JsWorkspace/gitts/latte_shell/node_modules/typescript/bin/tsc"
+	},
+	"init" : 
+	{
+		"path" : "/Users/zhouguodong/Documents/JsWorkspace/gitts/latte_shell_modules/latte_make/bin/init"
+	},
+	"tmake" : 
+	{
+		"path" : "/Users/zhouguodong/Documents/JsWorkspace/gitts/latte_shell_modules/latte_make/bin/make"
+	},
+	"yarn" : 
+	{
+		"path" : "/Users/zhouguodong/Documents/JsWorkspace/gitts/latte_shell/node_modules/yarn/bin/yarn.js"
+	},
+	"yarnpkg" : 
+	{
+		"path" : "/Users/zhouguodong/Documents/JsWorkspace/gitts/latte_shell/node_modules/yarn/bin/yarn.js"
+	}
+}
