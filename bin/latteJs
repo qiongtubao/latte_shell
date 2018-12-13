@@ -2,7 +2,7 @@
 
 
 var latte_lib = require("latte_lib");
-var lattes = require("../index");
+var lattes = require("../lib/latteJs");
 var handleName = process.argv[2];
 if (!handleName) {
 	return console.log("you common error");

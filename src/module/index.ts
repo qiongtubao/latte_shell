@@ -22,11 +22,11 @@ export default class Module {
     static install(moduleName, modulePath) {
         let add = (moduleName, modulePath) => {
             let m;
-            try {
-                m = require(modulePath);
-            } catch (err) {
-                console.log(err);
-            }
+            // try {
+            //     m = require(modulePath);
+            // } catch (err) {
+            //     console.log(err);
+            // }
             moduleJson[moduleName] = {
                 path: modulePath
             }
